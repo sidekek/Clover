@@ -29,7 +29,7 @@ public class Chan8 extends CommonSite {
 
         @Override
         public HttpUrl getUrl() {
-            return HttpUrl.parse("https://8ch.net/");
+            return HttpUrl.parse("https://8kun.top/");
         }
 
         @Override
@@ -55,7 +55,7 @@ public class Chan8 extends CommonSite {
     @Override
     public void setup() {
         setName("8chan");
-        setIcon(SiteIcon.fromFavicon(HttpUrl.parse("https://8ch.net/static/favicon.ico")));
+        setIcon(SiteIcon.fromFavicon(HttpUrl.parse("https://8kun.top/static/favicon.ico")));
         setBoardsType(BoardsType.INFINITE);
 
         setResolvable(URL_HANDLER);
@@ -68,8 +68,8 @@ public class Chan8 extends CommonSite {
         });
 
         setEndpoints(new VichanEndpoints(this,
-                "https://8ch.net",
-                "https://sys.8ch.net") {
+                "https://8kun.top",
+                "https://sys.8kun.top") {
             @Override
             public HttpUrl imageUrl(Post.Builder post, Map<String, String> arg) {
                 return root.builder().s("file_store").s(arg.get("tim") + "." + arg.get("ext")).url();
@@ -116,7 +116,7 @@ public class Chan8 extends CommonSite {
 
             @Override
             public SiteAuthentication postAuthenticate() {
-                return SiteAuthentication.fromUrl("https://8ch.net/dnsbls_bypass.php",
+                return SiteAuthentication.fromUrl("https://8kun.top/dnsbls_bypass.php",
                         "You failed the CAPTCHA",
                         "You may now go back and make your post");
             }
